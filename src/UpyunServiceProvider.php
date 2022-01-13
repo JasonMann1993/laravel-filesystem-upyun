@@ -3,6 +3,7 @@
 namespace Jasonmann\LaravelFilesystem\Upyun;
 
 use Jasonmann\LaravelFilesystem\Upyun\Plugins\FileUrl;
+use Jasonmann\LaravelFilesystem\Upyun\Plugins\Kernel;
 use League\Flysystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
@@ -26,6 +27,7 @@ class UpyunServiceProvider extends ServiceProvider
             $filesystem = new Filesystem($adapter);
 
             $filesystem->addPlugin(new FileUrl());
+            $filesystem->addPlugin(new Kernel());
 
             return $filesystem;
         });
