@@ -284,7 +284,7 @@ class UpyunAdapter extends AbstractAdapter
     /**
      * @return Upyun
      */
-    protected function client()
+    public function client()
     {
         $config = new \Upyun\Config($this->bucket, $this->operator, $this->password);
         $config->useSsl = config('filesystems.disks.upyun.protocol') === 'https' ? true : false;
